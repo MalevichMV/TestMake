@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAA;AACA;AACA;AACA;AACA,CAAC,G","sources":["webpack://testmake/./js/script.js"],"sourcesContent":["\r\n\r\nwindow.addEventListener('DOMContentLoaded', function() {\r\n    \r\n}); "],"names":[],"sourceRoot":""}
