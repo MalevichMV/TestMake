@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "sass": "^1.58.0"
   }
 }
