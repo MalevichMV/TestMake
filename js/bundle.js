@@ -59,7 +59,7 @@ function burger(backPageSelector, burgerSelector){
             backPage.classList.remove('show');
             backPage.classList.remove('fade');
             backPage.classList.add('hide');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = '';
         } else {
             backPage.classList.add('show');
             backPage.classList.add('fade');
@@ -73,7 +73,7 @@ function burger(backPageSelector, burgerSelector){
             backPage.classList.remove('show');
             backPage.classList.remove('fade');
             backPage.classList.add('hide');
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflow = '';
             burger.classList.remove('active_burger');
         }
     });
