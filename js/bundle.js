@@ -2,6 +2,120 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./js/modules/accordion.js":
+/*!*********************************!*\
+  !*** ./js/modules/accordion.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function accordion(headerSelector, bodySelector){
+    let accordionHeader = document.querySelector(headerSelector),
+        accordionBody = document.querySelector(bodySelector);
+
+    accordionHeader.addEventListener('click', () => {
+        accordionBody.classList.toggle("active_accordion_body");
+        accordionHeader.classList.toggle("active_accordion_header");
+        if (accordionBody.classList.contains("active_accordion_body")) {
+            accordionBody.style.maxHeight = accordionBody.scrollHeight + "px";
+        } else {
+            accordionBody.style.maxHeight = 0;
+        }
+    }); 
+
+    accordionHeader.addEventListener('mouseover', () => {
+        accordionBody.classList.add('accordion_hover');
+    });
+    accordionHeader.addEventListener('mouseout', () => {
+        accordionBody.classList.remove('accordion_hover');
+    });  
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accordion);
+
+/***/ }),
+
+/***/ "./js/modules/burger.js":
+/*!******************************!*\
+  !*** ./js/modules/burger.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function burger(backPageSelector, burgerSelector){
+    let backPage = document.querySelector(backPageSelector),
+    burger = document.querySelector(burgerSelector);
+
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active_burger');
+        if (backPage.classList.contains('show'))
+        {
+            backPage.classList.remove('show');
+            backPage.classList.remove('fade');
+            backPage.classList.add('hide');
+            document.body.style.overflow = 'hidden';
+        } else {
+            backPage.classList.add('show');
+            backPage.classList.add('fade');
+            backPage.classList.remove('hide');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === "Escape" && backPage.classList.contains('show')) { 
+            backPage.classList.remove('show');
+            backPage.classList.remove('fade');
+            backPage.classList.add('hide');
+            document.body.style.overflow = 'hidden';
+            burger.classList.remove('active_burger');
+        }
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (burger);
+
+/***/ }),
+
+/***/ "./js/modules/check_btns.js":
+/*!**********************************!*\
+  !*** ./js/modules/check_btns.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function check_btns(checkboxParentSelector, checkboxSelector, radioParentSelector, radioSelector){
+    let parentCheckbox = document.querySelector(checkboxParentSelector),
+        checkbox = parentCheckbox.querySelector(checkboxSelector),
+        parentRadio = document.querySelector(radioParentSelector),
+        radio = parentRadio.querySelector(radioSelector);
+
+    parentCheckbox.addEventListener('click', () => {
+        checkbox.checked = !checkbox.checked;
+    });
+    checkbox.addEventListener('click', () => {
+        checkbox.checked = !checkbox.checked;
+    });
+
+    parentRadio.addEventListener('click', () => {
+        radio.checked = true;
+    });
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (check_btns);
+
+/***/ }),
+
 /***/ "./js/modules/dropdownList.js":
 /*!************************************!*\
   !*** ./js/modules/dropdownList.js ***!
@@ -12,12 +126,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function dropdownList() {
-    let header = document.querySelector('.UI__drop-downList-select-header'), 
-        body = document.querySelector('.UI__drop-downList-select-body'),
-        arrow = document.querySelector('.UI__drop-downList-select-icon'),
-        items = body.querySelectorAll('.UI__drop-downList-select-item'),
-        current = document.querySelector('.UI__drop-downList-select-current');
+function dropdownList(headerSelector, bodySelector, arrowSelector, itemsSelector, currentSelector) {
+    let header = document.querySelector(headerSelector), 
+        body = document.querySelector(bodySelector),
+        arrow = document.querySelector(arrowSelector),
+        items = body.querySelectorAll(itemsSelector),
+        current = document.querySelector(currentSelector);
 
     header.addEventListener('click', () => {
         body.classList.toggle("active_body");
@@ -56,6 +170,51 @@ function dropdownList() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (dropdownList);
+
+/***/ }),
+
+/***/ "./js/modules/navigation.js":
+/*!**********************************!*\
+  !*** ./js/modules/navigation.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function navigation(){
+    let sections = document.querySelectorAll("section"),
+        navigationLink = document.querySelector("nav").querySelectorAll("a"),
+        sectionId;
+
+    window.addEventListener("scroll", () => {
+        let scroll = window.pageYOffset;  
+
+        sections.forEach(current => {
+            let sectionHeight = current.offsetHeight, 
+                sectionTop = (current.getBoundingClientRect().top + window.pageYOffset) - 50;
+
+            sectionId = current.getAttribute('data-section_number');
+
+            if (Number(sectionId) - 1 == 0)
+            {
+                sectionHeight += sectionTop + 1;
+                sectionTop = -1;
+            }
+                
+            if (scroll > sectionTop &&
+                scroll <= sectionTop + sectionHeight)
+            {
+                navigationLink[Number(sectionId) - 1].classList.add("active_link");
+            } else {
+                navigationLink[Number(sectionId) - 1].classList.remove("active_link");
+            }
+        });
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (navigation);
 
 /***/ }),
 
@@ -255,6 +414,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/tabs */ "./js/modules/tabs.js");
 /* harmony import */ var _modules_textField__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/textField */ "./js/modules/textField.js");
 /* harmony import */ var _modules_dropdownList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/dropdownList */ "./js/modules/dropdownList.js");
+/* harmony import */ var _modules_check_btns__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/check_btns */ "./js/modules/check_btns.js");
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/accordion */ "./js/modules/accordion.js");
+/* harmony import */ var _modules_navigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/navigation */ "./js/modules/navigation.js");
+/* harmony import */ var _modules_burger__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/burger */ "./js/modules/burger.js");
+
+
+
+
 
 
 
@@ -262,7 +429,11 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function() {
     (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.typography__tabs-item', '.typography__styles', '.typography__tabs', 'typography__tabs-item-active');
     (0,_modules_textField__WEBPACK_IMPORTED_MODULE_1__["default"])('.UI__textField-input', '.UI__textField-errorMessage');
-    (0,_modules_dropdownList__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    (0,_modules_dropdownList__WEBPACK_IMPORTED_MODULE_2__["default"])('.UI__drop-downList-select-header', '.UI__drop-downList-select-body','.UI__drop-downList-select-icon','.UI__drop-downList-select-item','.UI__drop-downList-select-current');
+    (0,_modules_check_btns__WEBPACK_IMPORTED_MODULE_3__["default"])('.UI__check_button', '.UI__check_button-checkbox','.UI__radio_button', '.UI__radio_button-radio');
+    (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])('.UI__accordion-header', '.UI__accordion-body');
+    (0,_modules_navigation__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    (0,_modules_burger__WEBPACK_IMPORTED_MODULE_6__["default"])('.back-page', '.header__burger');
 }); 
 })();
 

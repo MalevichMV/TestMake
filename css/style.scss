@@ -9,6 +9,9 @@
     background-color: #ffffff;
     color: #1B1B1B;
 }
+html {
+    scroll-behavior: smooth;
+}
 a {
     text-decoration:none;
 }
@@ -31,13 +34,13 @@ a {
 }
 
 .wrapper{
+    position: relative;
+    padding-right: 5px;
     display: grid;
     margin: 0 auto;
     max-width: 1300px;
     grid-template-columns: repeat(12, minmax(60px, 80px));
     grid-column-gap: 32px;
-
-    margin-bottom: 200px;
 }
 
 
@@ -71,29 +74,50 @@ a {
 .header__logo-name-second{
     color: #7D7D7D;
 }
-.header__burger
-{
-    padding-right: 5px;
+.header__burger{
+    position: absolute;
+    right: 6px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 .header__burger::before
 {
-    margin-bottom: 4px;
+    position: absolute;
+    top: 11px;
+    right: 0;
+    z-index: 9999;
     display: block;
     content: '';
     width: 32px;
     height: 2px;
     background-color: #1B1B1B;
+    transition: background-color .3s, transform .3s;
 }
 .header__burger::after
 {
-    margin-top: 4px;
-    margin-right: 0px;
-    margin-left: auto;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    z-index: 9999;
     display: block;
     content: '';
     width: 24px;
     height: 2px;
     background-color: #1B1B1B;
+    transition: background-color .3s, transform .3s;
+}
+
+.active_burger:before{
+    background-color:#E80F3B;
+    transform: rotate(45deg);
+    top: 16px;
+}
+.active_burger:after{
+    background-color:#E80F3B;
+    transform: rotate(-45deg);
+    width: 32px;
+    bottom: 14px;
 }
 
 
@@ -113,11 +137,18 @@ a {
     @include p_14;
     color: #7D7D7D;
 }
+.navigation__link:hover{
+    color: #1B1B1B;
+}
+.active_link, .active_link:hover{
+    color: #3E29E3;
+}
 
 
  /*   TestTask    */
 
 .testTask{
+    padding-bottom: 80px;
     margin-top: 48px;
     grid-column-start: 4;
     grid-column-end: 10;
@@ -139,7 +170,7 @@ a {
 /*   Grid    */
 
 .grid{
-    margin-top: 80px;
+    padding-bottom: 80px;
     grid-column-start: 4;
     grid-column-end: 13;
 }
@@ -180,9 +211,9 @@ a {
 
 /*   typography    */
 .typography{
+    padding-bottom: 80px;
     grid-column-start: 4;
     grid-column-end: 13;
-    margin-top: 80px;
 }
 .typography__tittle{
     @include h2;
@@ -293,7 +324,6 @@ a {
 .UI{
     grid-column-start: 4;
     grid-column-end: 13;
-    margin-top: 80px;
 }
 .UI__tittle{
     @include h2;
@@ -501,35 +531,340 @@ a {
     column-gap: 32px;
 }
 .UI__btns-button{
+    position: relative;
     cursor: pointer;
     @include p_16;
     margin-bottom: 32px;
     padding: 16px 32px;
     max-width: 150px;
     border: 0;
-    color: #FFFFFF;
-    background: linear-gradient(45deg, #DD80ED 0%, #3D28E3 30%, #3D28E3 70%, #DD80ED 100%);
-    background-size: 400%;
-    background-position: 0% 100%;
+    z-index: 1;
+    background: linear-gradient(45deg, #DD80ED 0%, #3D28E3 100%);
     border-radius: 32px;
-    transition: all .3s;
+    color: #ffffff;
 }
-.UI__btns-button:hover{
-    background-position: 100% 0%;
+.UI__btns-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -2;
+    height: 100%;
+    background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
+    border-radius: 32px;
+    opacity: 0;
+    transition: opacity .3s;
 }
-.UI__btns-button:active{
-    background-position: 90% 10%;
+.UI__btns-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    background: linear-gradient(206.57deg, #DD80ED 0%, #3D28E3 83.33%);
+    border-radius: 32px;
+    opacity: 0;
+    transition: opacity .1s;
 }
-.UI__btns-button:disabled{
+.UI__btns-button:hover:before{
+    opacity: 1;
+}
+.UI__btns-button:active:after{
+    opacity: 1;
+}
+.UI__btns-button:disabled,
+.UI__btns-button:disabled::after,
+.UI__btns-button:disabled:before{
     background: #CBCBCC;
 }
-.UI__btns-button:nth-child(2):disabled{
-    background: linear-gradient(45deg, #DD80ED 0%, #3D28E3 30%, #3D28E3 70%, #DD80ED 100%);
-    background-size: 400%;
-    background-position: 100% 0%;
+.UI__btns-button:nth-child(2):disabled,
+.UI__btns-button:nth-child(2):disabled:after,
+.UI__btns-button:nth-child(2):disabled:before{
+    background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
 }
-.UI__btns-button:nth-child(3):disabled{
-    background: linear-gradient(45deg, #DD80ED 0%, #3D28E3 30%, #3D28E3 70%, #DD80ED 100%);
-    background-size: 400%;
-    background-position: 90% 10%;
+.UI__btns-button:nth-child(3):disabled,
+.UI__btns-button:nth-child(3):disabled:after,
+.UI__btns-button:nth-child(3):disabled:before{
+    background: linear-gradient(206.57deg, #DD80ED 0%, #3D28E3 83.33%);
+}
+
+
+
+.UI__radio_check-tittle{
+    @include h3;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.UI__radio_check_buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 32px;
+}
+.UI__check_buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.UI__check_button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.UI__check_button > label{
+    cursor: pointer;
+}
+.UI__check_button-checkbox{
+    cursor: pointer;
+    margin-right: 16px;
+    appearance: none;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #AEADAE;
+    transition: all .3s;
+    position: relative;
+}
+.UI__check_button:first-child:hover input{
+    border: 2px solid #3E29E3;
+}
+.UI__check_button-checkbox:checked {
+	background-color: #3E29E3;
+    border: 2px solid #3E29E3;
+}
+.UI__check_button-checkbox:checked:after {
+	content: "\00AC";
+	position: absolute;
+    font-size: 25px;
+    transform: rotate(130deg);
+	top: -6px;
+	left: 3px;
+	color: #ffffff;
+}
+.UI__check_button:nth-child(2) input{
+    border: 2px solid #3E29E3;
+}
+.UI__check_button:nth-child(3) input{
+    background-color: #3E29E3;
+    border: 2px solid #3E29E3;
+}
+.UI__check_button:nth-child(3) input:after {
+    content: "\00AC";
+	position: absolute;
+    font-size: 25px;
+    transform: rotate(130deg);
+	top: -6px;
+	left: 3px;
+	color: #ffffff;
+}
+
+.UI__radio_buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.UI__radio_button{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+.UI__radio_button > label{
+    cursor: pointer;
+}
+.UI__radio_button-radio{
+    cursor: pointer;
+    margin-right: 16px;
+    appearance: none;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #AEADAE;
+    border-radius: 50%;
+    transition: border .3s;
+    position: relative;
+}
+.UI__radio_button:first-child:hover input{
+    border: 2px solid #3E29E3;
+}
+.UI__radio_button-radio:checked {
+    border: 2px solid #3E29E3;
+}
+.UI__radio_button-radio:checked:after {
+    content: '';
+	position: absolute;
+    width: 12px;
+    height: 12px;
+	background-color: #3E29E3;
+    border-radius: 50%;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+.UI__radio_button:nth-child(2) input{
+    border: 2px solid #3E29E3;
+}
+.UI__radio_button:nth-child(3) input{
+    border: 2px solid #3E29E3;
+}
+.UI__radio_button:nth-child(3) input:after {
+    content: '';
+	position: absolute;
+    width: 12px;
+    height: 12px;
+	background-color: #3E29E3;
+    border-radius: 50%;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.UI__accordion{
+    @include p_16;
+}
+.UI__accordion-tittle{
+    @include h3;
+    margin-top: 40px;
+    margin-bottom: 32px;
+}
+.UI__accordion-header{
+    cursor: pointer;
+    position: relative;
+    height: 40px;
+    transition: color .3s;
+}
+.UI__accordion-header:after{
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 6px;
+    height: 6px;
+    width: 6px;
+    border-bottom: 2px solid #3E29E3;
+    border-right: 2px solid #3E29E3;
+    transform: rotate(45deg);
+    transition: transform .3s;
+}
+.UI__accordion-body{
+    margin-bottom: 24px;
+    overflow: hidden;
+    max-height: 0;
+    border-bottom: 1px solid #CBCBCC;
+    transition: border-color .3s, max-height .3s;
+}
+.active_accordion_header{
+    color: #3E29E3;
+}
+.active_accordion_header:after{
+    transform: rotate(225deg);
+}
+.accordion_hover{
+    border-color:#3E29E3;
+}
+.active_accordion_body{
+    border-bottom: 2px solid #3E29E3;
+    padding-bottom: 30px;
+}
+.UI__accordion-body-exmple{
+    border-bottom: 2px solid #3E29E3;
+    padding-bottom: 30px;
+}
+
+
+/*    Footer      */
+
+.footer{
+    margin-top: 112px;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height: 116px;
+    width: 100%;
+    display: flex;
+}
+.footer__tittle{
+    margin: auto;
+}
+
+
+/*  back-page   */
+
+
+.back-page{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../img/back-page_image.png');
+    background-size: cover;
+}
+.back-page__info{
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    height: 98%;
+}
+.back-page__info-header{
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    margin-left: 56px;
+    margin-bottom: 36px;
+}
+.back-page__info-logo{
+    margin-right: 45px;
+    padding-top: 5px;
+}
+.back-page__info-tittle{
+    color: #7D7D7D;
+}
+
+.back-page__info-body {
+    margin-left: 160px;
+}
+.back-page__info-name{
+    @include h2;
+    margin-bottom: 24px;
+}
+.back-page__info-description{
+    @include p_16;
+    margin-bottom: 32px;
+    max-width: 384px;
+}
+.back-page__info-phone{
+    @include p_18;
+}
+.back-page__info-link{
+    position: absolute;
+    left: 160px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+.back-page__info-link-img {
+    margin-right: 24px;
+    position: relative;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+.back-page__info-link-img img{
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+}
+.back-page__info-link a{
+    @include p_16;
+    color: #3E29E3;
 }

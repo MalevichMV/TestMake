@@ -1,9 +1,9 @@
-function dropdownList() {
-    let header = document.querySelector('.UI__drop-downList-select-header'), 
-        body = document.querySelector('.UI__drop-downList-select-body'),
-        arrow = document.querySelector('.UI__drop-downList-select-icon'),
-        items = body.querySelectorAll('.UI__drop-downList-select-item'),
-        current = document.querySelector('.UI__drop-downList-select-current');
+function dropdownList(headerSelector, bodySelector, arrowSelector, itemsSelector, currentSelector) {
+    let header = document.querySelector(headerSelector), 
+        body = document.querySelector(bodySelector),
+        arrow = document.querySelector(arrowSelector),
+        items = body.querySelectorAll(itemsSelector),
+        current = document.querySelector(currentSelector);
 
     header.addEventListener('click', () => {
         body.classList.toggle("active_body");
