@@ -66,7 +66,7 @@
             <div class="grid__type-options">
                 <div class="grid__type-option">
                     <div class="grid__type-option-tittle">Контент</div>
-                    <div class="grid__type-option-value">672-9282</div>
+                    <div class="grid__type-option-value">672-928</div>
                 </div>
                 <div class="grid__type-option">
                     <div class="grid__type-option-tittle">Колонок</div>
@@ -189,7 +189,6 @@
                 <div class="UI__textFields-tittle">Текстовое поле</div>
                 <div class="UI__textFields-inputFields">
                     <div class="UI__textField">
-                        <div class="UI__textField-tittle">Интерактив</div>
                         <input class="UI__textField-input" type="text" required>
                         <label class="UI__textField-placeholder">E-mail</label>
                         <div class="UI__textField-errorMessage">Текст ошибки</div>
@@ -223,7 +222,8 @@
                             <label class="UI__drop-downList-select-placeholder">Выберите что-нибудь</label>
                             <div class="UI__drop-downList-select-icon"></div>
                         </div>
-                        <div class="UI__drop-downList-select-body">
+                        <div class="UI__drop-downList-select-body"
+                        style="z-index: 100;">
                             <div class="UI__drop-downList-select-item">Первый стул</div>
                             <div class="UI__drop-downList-select-item">Второй стул</div>
                             <div class="UI__drop-downList-select-item">Выбранный пункт</div>
@@ -252,7 +252,7 @@
                             <div class="UI__drop-downList-select-icon"></div>
                         </div>
                         <div class="UI__drop-downList-select-body active_body"
-                            style="max-height: 168px;">
+                            style="max-height: 300px;">
                             <div class="UI__drop-downList-select-item-example">Первый стул</div>
                             <div class="UI__drop-downList-select-item-example">Второй стул</div>
                             <div class="UI__drop-downList-select-item-example active_item">Выбранный пункт</div>
@@ -264,13 +264,23 @@
 
             <div class="UI__btns">
                 <div class="UI__btns-tittle">Кнопка</div>
-                <div class="UI__btns-buttons">
+                <div class="UI__btns-buttons">  
                     <button class="UI__btns-button">Отправить</button>
-                    <button class="UI__btns-button"
-                    disabled="disabled">Отправить</button>
-                    <button class="UI__btns-button"
-                    disabled="disabled">Отправить</button>
-                    <button class="UI__btns-button" disabled="disabled">Отправить</button>
+                    <div>
+                        <div class="UI__btns-button-tittle">Ховер</div>
+                        <button class="UI__btns-button"
+                        disabled="disabled">Отправить</button>
+                    </div>
+                    <div>
+                        <div class="UI__btns-button-tittle">Нажатие</div>
+                        <button class="UI__btns-button"
+                        disabled="disabled">Отправить</button>
+                    </div>
+                    <div>
+                        <div class="UI__btns-button-tittle">Неактивна</div>
+                        <button class="UI__btns-button"
+                        disabled="disabled">Отправить</button>
+                    </div>
                 </div>
             </div>
 
@@ -377,7 +387,7 @@
                     </div>
                     <div class="back-page__info-link">
                         <a href="https://t.me/MalevichMaxim"><div class="back-page__info-link-img"><img src="./img/link.png"></div></a>
-                        <a href="https://t.me/MalevichMaxim">Ссылка на соцсеть/мессенджер</a>
+                        <a href="https://t.me/MalevichMaxim" style="padding-right: 20px;">Ссылка на соцсеть/мессенджер</a>
                     </div>
                 </div>
             </div>

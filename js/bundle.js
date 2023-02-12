@@ -52,28 +52,37 @@ function burger(backPageSelector, burgerSelector){
     let backPage = document.querySelector(backPageSelector),
     burger = document.querySelector(burgerSelector);
 
+    /* Закрытие backPage */
+    function closeBackPage(){
+        backPage.classList.remove('show');
+        backPage.classList.remove('fade');
+        backPage.classList.add('hide');
+        document.body.style.overflow = '';
+    }
+
+    /* Открытие backPage */
+    function openBackPage(){
+        backPage.classList.add('show');
+        backPage.classList.add('fade');
+        backPage.classList.remove('hide');
+        document.body.style.overflow = 'hidden';
+    }
+
+    /* Открытие и закрытие при коике на бургер */
     burger.addEventListener('click', () => {
         burger.classList.toggle('active_burger');
         if (backPage.classList.contains('show'))
         {
-            backPage.classList.remove('show');
-            backPage.classList.remove('fade');
-            backPage.classList.add('hide');
-            document.body.style.overflow = '';
+            closeBackPage();
         } else {
-            backPage.classList.add('show');
-            backPage.classList.add('fade');
-            backPage.classList.remove('hide');
-            document.body.style.overflow = 'hidden';
+            openBackPage();
         }
     });
 
+    /* Закрытие при клике на "escape" */
     document.addEventListener('keydown', (e) => {
         if (e.code === "Escape" && backPage.classList.contains('show')) { 
-            backPage.classList.remove('show');
-            backPage.classList.remove('fade');
-            backPage.classList.add('hide');
-            document.body.style.overflow = '';
+            closeBackPage();
             burger.classList.remove('active_burger');
         }
     });
@@ -126,13 +135,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function dropdownList(headerSelector, bodySelector, arrowSelector, itemsSelector, currentSelector) {
+function dropdownList(dropdownListSelector ,headerSelector, bodySelector, arrowSelector, itemsSelector, currentSelector) {
     let header = document.querySelector(headerSelector), 
         body = document.querySelector(bodySelector),
+        dropdownList = document.querySelector(dropdownListSelector),
         arrow = document.querySelector(arrowSelector),
         items = body.querySelectorAll(itemsSelector),
         current = document.querySelector(currentSelector);
 
+    
+    /* Открытие и закрытие выпадающего списка */
     header.addEventListener('click', () => {
         body.classList.toggle("active_body");
         arrow.classList.toggle("active_arrow");
@@ -151,7 +163,8 @@ function dropdownList(headerSelector, bodySelector, arrowSelector, itemsSelector
             elem.classList.remove('active_item');
         });
     }
-
+    
+    /* Выбор элемента из списка */
     items.forEach(elem => {
         elem.addEventListener('click', (e) => {
             if (!elem.classList.contains('active_item'))
@@ -166,6 +179,18 @@ function dropdownList(headerSelector, bodySelector, arrowSelector, itemsSelector
             body.classList.remove('active_body');
             body.style.maxHeight = 0;
         });
+    });
+
+    /* Закрытие при клике вне выпадающего списка */
+    document.addEventListener('click', (e) => {
+        if (e.target === dropdownList || dropdownList.contains(e.target)) {
+            return;
+        }
+        arrow.classList.remove("active_arrow");
+        body.classList.remove('active_body');
+        body.style.maxHeight = 0;
+        if (!current.classList.contains('active_current'))
+            header.classList.remove('active_header');
     });
 }
 
@@ -188,6 +213,7 @@ function navigation(){
         navigationLink = document.querySelector("nav").querySelectorAll("a"),
         sectionId;
 
+    /* Смена активности навигационных ссылок */
     window.addEventListener("scroll", () => {
         let scroll = window.pageYOffset;  
 
@@ -202,7 +228,8 @@ function navigation(){
                 sectionHeight += sectionTop + 1;
                 sectionTop = -1;
             }
-                
+            
+            /* Если скролл ниже начала секции и выше конца */
             if (scroll > sectionTop &&
                 scroll <= sectionTop + sectionHeight)
             {
@@ -233,6 +260,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
 		tabsContent = document.querySelectorAll(tabsContentSelector),
 		tabsParent = document.querySelector(tabsParentSelector);
 
+    /* Скрытие контента у всех табов */
 	function hideTabContent() {
         
         tabsContent.forEach(item => {
@@ -245,6 +273,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
         });
 	}
 
+    /* Показ контента у конкретного таба */
 	function showTabContent(i = 0) {
         tabsContent[i].classList.add('show', 'fade');
         tabsContent[i].classList.remove('hide');
@@ -254,8 +283,8 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
     hideTabContent();
     showTabContent();
 
-	tabsParent.addEventListener('click', function(event) {
-		const target = event.target;
+	tabsParent.addEventListener('click', (e) => {
+		const target = e.target;
 		if(target && target.classList.contains(tabsSelector.slice(1))) {
             tabs.forEach((item, i) => {
                 if (target == item) {
@@ -297,26 +326,26 @@ function textField(inputElement, errorMessageElement) {
         if (validateEmail(e.target.value) === null)
         {
             input.classList.add('input_error');
-            error.style.display = 'block';
             input.classList.remove('input_correct');
             input.classList.remove('input_focus');
             input.classList.remove('input_hover');
+            error.style.display = 'block';
         }
             else 
         {
             input.classList.add('input_correct');
             input.classList.remove('input_error');
-            error.style.display = 'none';
             input.classList.remove('input_focus');
             input.classList.remove('input_hover');
+            error.style.display = 'none';
         }
             
         if (e.target.value === '')
         {
+            input.classList.add('input_focus');
+            input.classList.remove('input_correct');
             input.classList.remove('input_error');
             error.style.display = 'none';
-            input.classList.remove('input_correct');
-            input.classList.add('input_focus');
         }
     });
 
@@ -329,7 +358,7 @@ function textField(inputElement, errorMessageElement) {
     });
     input.addEventListener('blur', () => {
         if (input.classList.contains("input_focus"))
-        input.classList.remove('input_focus');
+            input.classList.remove('input_focus');
     });
     input.addEventListener('mouseover', () => {
         if (!input.classList.contains("input_error") && 
@@ -429,7 +458,7 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener('DOMContentLoaded', function() {
     (0,_modules_tabs__WEBPACK_IMPORTED_MODULE_0__["default"])('.typography__tabs-item', '.typography__styles', '.typography__tabs', 'typography__tabs-item-active');
     (0,_modules_textField__WEBPACK_IMPORTED_MODULE_1__["default"])('.UI__textField-input', '.UI__textField-errorMessage');
-    (0,_modules_dropdownList__WEBPACK_IMPORTED_MODULE_2__["default"])('.UI__drop-downList-select-header', '.UI__drop-downList-select-body','.UI__drop-downList-select-icon','.UI__drop-downList-select-item','.UI__drop-downList-select-current');
+    (0,_modules_dropdownList__WEBPACK_IMPORTED_MODULE_2__["default"])('.UI__drop-downList-select', '.UI__drop-downList-select-header', '.UI__drop-downList-select-body','.UI__drop-downList-select-icon','.UI__drop-downList-select-item','.UI__drop-downList-select-current');
     (0,_modules_check_btns__WEBPACK_IMPORTED_MODULE_3__["default"])('.UI__check_button', '.UI__check_button-checkbox','.UI__radio_button', '.UI__radio_button-radio');
     (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_4__["default"])('.UI__accordion-header', '.UI__accordion-body');
     (0,_modules_navigation__WEBPACK_IMPORTED_MODULE_5__["default"])();

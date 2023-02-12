@@ -14,26 +14,26 @@ function textField(inputElement, errorMessageElement) {
         if (validateEmail(e.target.value) === null)
         {
             input.classList.add('input_error');
-            error.style.display = 'block';
             input.classList.remove('input_correct');
             input.classList.remove('input_focus');
             input.classList.remove('input_hover');
+            error.style.display = 'block';
         }
             else 
         {
             input.classList.add('input_correct');
             input.classList.remove('input_error');
-            error.style.display = 'none';
             input.classList.remove('input_focus');
             input.classList.remove('input_hover');
+            error.style.display = 'none';
         }
             
         if (e.target.value === '')
         {
+            input.classList.add('input_focus');
+            input.classList.remove('input_correct');
             input.classList.remove('input_error');
             error.style.display = 'none';
-            input.classList.remove('input_correct');
-            input.classList.add('input_focus');
         }
     });
 
@@ -46,7 +46,7 @@ function textField(inputElement, errorMessageElement) {
     });
     input.addEventListener('blur', () => {
         if (input.classList.contains("input_focus"))
-        input.classList.remove('input_focus');
+            input.classList.remove('input_focus');
     });
     input.addEventListener('mouseover', () => {
         if (!input.classList.contains("input_error") && 

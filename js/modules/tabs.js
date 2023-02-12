@@ -3,6 +3,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
 		tabsContent = document.querySelectorAll(tabsContentSelector),
 		tabsParent = document.querySelector(tabsParentSelector);
 
+    /* Скрытие контента у всех табов */
 	function hideTabContent() {
         
         tabsContent.forEach(item => {
@@ -15,6 +16,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
         });
 	}
 
+    /* Показ контента у конкретного таба */
 	function showTabContent(i = 0) {
         tabsContent[i].classList.add('show', 'fade');
         tabsContent[i].classList.remove('hide');
@@ -24,8 +26,8 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
     hideTabContent();
     showTabContent();
 
-	tabsParent.addEventListener('click', function(event) {
-		const target = event.target;
+	tabsParent.addEventListener('click', (e) => {
+		const target = e.target;
 		if(target && target.classList.contains(tabsSelector.slice(1))) {
             tabs.forEach((item, i) => {
                 if (target == item) {

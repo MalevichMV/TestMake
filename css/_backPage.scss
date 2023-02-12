@@ -1,0 +1,110 @@
+.back-page{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../img/back-page_image.png');
+    background-size: cover;
+}
+.back-page__info{
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55%;
+    height: 98%;
+    @media (max-width: 1077px){
+        width: 84%;        
+    }
+}
+.back-page__info-header{
+    display: flex;
+    align-items: center;
+    margin-top: 24px;
+    margin-left: 63px;
+    margin-bottom: 36px;
+    @media (max-width: 450px){
+        margin-left: 24px;    
+    }
+}
+.back-page__info-logo{
+    margin-right: 45px;
+    @media (max-width: 450px){
+        margin-right: 15px;    
+    }
+}
+.back-page__info-tittle{
+    color: #7D7D7D;
+    padding-right: 20px;
+}
+
+.back-page__info-body {
+    margin-left: 160px;
+    padding-right: 20px;
+    @media (max-width: 672px){
+        margin-left: 62px;        
+    }
+    @media (max-width: 450px){
+        margin-left: 23px;        
+    }
+}
+.back-page__info-name{
+    @include h2;
+    margin-bottom: 24px;
+    @media (max-width: 450px){
+        @include mobile_h2;    
+    }
+}
+.back-page__info-description{
+    @include p_16;
+    margin-bottom: 32px;
+    max-width: 384px;
+    @media (max-width: 450px){
+        @include mobile_p_16;    
+    }
+}
+.back-page__info-phone{
+    @include p_18;
+    @media (max-width: 450px){
+        @include mobile_p_18;    
+    }
+}
+.back-page__info-link{
+    position: absolute;
+    left: 160px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    @media (max-width: 672px){
+        left: 62px;        
+    }
+    @media (max-width: 450px){
+        left: 23px;        
+    }
+}
+.back-page__info-link-img {
+    margin-right: 24px;
+    position: relative;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+}
+.back-page__info-link-img img{
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+}
+.back-page__info-link a{
+    @include p_16;
+    color: #3E29E3;
+    @media (max-width: 450px){
+        @include mobile_p_16;    
+    }
+}

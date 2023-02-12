@@ -3,6 +3,7 @@ function navigation(){
         navigationLink = document.querySelector("nav").querySelectorAll("a"),
         sectionId;
 
+    /* Смена активности навигационных ссылок */
     window.addEventListener("scroll", () => {
         let scroll = window.pageYOffset;  
 
@@ -17,7 +18,8 @@ function navigation(){
                 sectionHeight += sectionTop + 1;
                 sectionTop = -1;
             }
-                
+            
+            /* Если скролл ниже начала секции и выше конца */
             if (scroll > sectionTop &&
                 scroll <= sectionTop + sectionHeight)
             {

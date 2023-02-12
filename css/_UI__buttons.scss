@@ -1,0 +1,93 @@
+.UI__btns-tittle{
+    @include h3;
+    margin-bottom: 32px;
+    @media (max-width: 450px){
+        @include mobile_h3;    
+    }
+}
+.UI__btns-buttons{    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 32px;
+    @media (max-width: 928px){
+        grid-template-columns: 1fr 1fr;        
+    }
+    @media (max-width: 450px){
+        display: flex;   
+        flex-direction: column;  
+    }
+}
+.UI__btns-button-tittle{
+    @include p_14;
+    margin-bottom: 24px;
+    color: #7D7D7D;
+    @media (max-width: 450px){
+        @include mobile_p_14;    
+    }
+}
+.UI__btns-button{
+    align-self: flex-end;
+    position: relative;
+    cursor: pointer;
+    @include p_16;
+    margin-bottom: 32px;
+    padding: 16px 32px;
+    max-width: 150px;
+    max-height: 56px;
+    border: 0;
+    z-index: 1;
+    background: linear-gradient(45deg, #DD80ED 0%, #3D28E3 100%);
+    border-radius: 32px;
+    color: #ffffff;
+    @media (max-width: 450px){
+        align-self: flex-start;
+        @include mobile_p_16;    
+    }
+}
+.UI__btns-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -2;
+    height: 100%;
+    background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
+    border-radius: 32px;
+    opacity: 0;
+    transition: opacity .3s;
+}
+.UI__btns-button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    background: linear-gradient(206.57deg, #DD80ED 0%, #3D28E3 83.33%);
+    border-radius: 32px;
+    opacity: 0;
+    transition: opacity .1s;
+}
+.UI__btns-button:hover:before{
+    opacity: 1;
+}
+.UI__btns-button:active:after{
+    opacity: 1;
+}
+.UI__btns-button:disabled,
+.UI__btns-button:disabled::after,
+.UI__btns-button:disabled:before{
+    background: #CBCBCC;
+}
+.UI__btns-button:nth-child(2):disabled,
+.UI__btns-button:nth-child(2):disabled:after,
+.UI__btns-button:nth-child(2):disabled:before{
+    background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
+}
+.UI__btns-button:nth-child(3):disabled,
+.UI__btns-button:nth-child(3):disabled:after,
+.UI__btns-button:nth-child(3):disabled:before{
+    background: linear-gradient(206.57deg, #DD80ED 0%, #3D28E3 83.33%);
+}
