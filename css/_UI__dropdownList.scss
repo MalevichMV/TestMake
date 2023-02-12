@@ -54,7 +54,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: all .3s;
+    transition: color .3s, top .3s;
 }
 .UI__drop-downList-select-icon{
     position: absolute;

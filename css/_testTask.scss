@@ -12,7 +12,6 @@
     @media (max-width: 450px){
         grid-column-end: 5;    
     }
-
 }
 .testTask__tittle{
     @include h1;
@@ -27,7 +26,6 @@
     @media (max-width: 450px){
         @include mobile_p_lead;    
     }
-
 }
 .testTask__description{
     @include p_16;

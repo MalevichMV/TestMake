@@ -613,7 +613,7 @@
   left: 0;
   bottom: 10px;
   pointer-events: none;
-  transition: all 0.3s;
+  transition: color 0.3s, bottom 0.3s;
 }
 @media (max-width: 450px) {
   .UI__textField-placeholder {
@@ -754,7 +754,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.3s;
+  transition: color 0.3s, top 0.3s;
 }
 
 .UI__drop-downList-select-icon {
@@ -1000,7 +1000,7 @@
   min-width: 24px;
   height: 24px;
   border: 2px solid #AEADAE;
-  transition: all 0.3s;
+  transition: border 0.3s, background-color 0.3s;
   position: relative;
 }
 

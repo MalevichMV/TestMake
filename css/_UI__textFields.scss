@@ -8,7 +8,6 @@
         @include mobile_h3;    
     }
 }
-
 .UI__textFields-inputFields{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -54,12 +53,11 @@
     left: 0;
     bottom: 10px;
     pointer-events: none;
-    transition: all .3s;
+    transition: color .3s, bottom .3s;
     @media (max-width: 450px){
         @include mobile_p_16;    
     }
 }
-
 .input_error + .UI__textField-placeholder,
 .input_correct + .UI__textField-placeholder,
 .input_focus + .UI__textField-placeholder {
@@ -71,7 +69,6 @@
 .input_error + .UI__textField-placeholder{
     color: #E80F3B;
 }
-
 .UI__textField-errorMessage{
     margin-top: 6px;
     font-size: 14px;

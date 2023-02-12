@@ -38,7 +38,7 @@
     min-width: 24px;
     height: 24px;
     border: 2px solid #AEADAE;
-    transition: all .3s;
+    transition: border .3s, background-color .3s;
     position: relative;
 }
 .UI__check_button:first-child:hover input{
@@ -73,7 +73,6 @@
 	left: 3px;
 	color: #ffffff;
 }
-
 .UI__radio_buttons{
     display: flex;
     flex-direction: column;
