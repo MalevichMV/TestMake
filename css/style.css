@@ -241,6 +241,7 @@
 }
 
 .grid__type-name {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   margin-top: 48px;
@@ -248,6 +249,7 @@
 }
 @media (max-width: 450px) {
   .grid__type-name {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -287,11 +289,13 @@
 }
 
 .grid__type-option-value {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
 }
 @media (max-width: 450px) {
   .grid__type-option-value {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -434,6 +438,7 @@
 }
 
 .typography__style-example-h3 {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
 }
@@ -476,6 +481,7 @@
 }
 
 .typography__style-example-mobile-h3 {
+  font-weight: 400;
   font-size: 20px;
   line-height: 28px;
 }
@@ -544,11 +550,13 @@
 
 .UI__textFields-tittle {
   margin-bottom: 32px;
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
 }
 @media (max-width: 450px) {
   .UI__textFields-tittle {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -678,11 +686,13 @@
 .UI__drop-downList-tittle {
   margin-top: 40px;
   margin-bottom: 24px;
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
 }
 @media (max-width: 450px) {
   .UI__drop-downList-tittle {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -827,12 +837,14 @@
 }
 
 .UI__btns-tittle {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   margin-bottom: 32px;
 }
 @media (max-width: 450px) {
   .UI__btns-tittle {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -929,25 +941,26 @@
   opacity: 1;
 }
 
-.UI__btns-button:disabled,
-.UI__btns-button:disabled::after,
-.UI__btns-button:disabled:before {
+.button_example3:disabled,
+.button_example3:disabled::after,
+.button_example3:disabled:before {
   background: #CBCBCC;
 }
 
-.UI__btns-button:nth-child(2):disabled,
-.UI__btns-button:nth-child(2):disabled:after,
-.UI__btns-button:nth-child(2):disabled:before {
-  background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
-}
-
-.UI__btns-button:nth-child(3):disabled,
-.UI__btns-button:nth-child(3):disabled:after,
-.UI__btns-button:nth-child(3):disabled:before {
+.button_example2:disabled,
+.button_example2:disabled:after,
+.button_example2:disabled:before {
   background: linear-gradient(206.57deg, #DD80ED 0%, #3D28E3 83.33%);
 }
 
+.button_example1:disabled,
+.button_example1:disabled:after,
+.button_example1:disabled:before {
+  background: linear-gradient(225deg, #DD80ED 0%, #3D28E3 100%);
+}
+
 .UI__radio_check-tittle {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   margin-top: 32px;
@@ -955,6 +968,7 @@
 }
 @media (max-width: 450px) {
   .UI__radio_check-tittle {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
@@ -1127,6 +1141,7 @@
 }
 
 .UI__accordion-tittle {
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   margin-top: 40px;
@@ -1134,6 +1149,7 @@
 }
 @media (max-width: 450px) {
   .UI__accordion-tittle {
+    font-weight: 400;
     font-size: 20px;
     line-height: 28px;
   }
