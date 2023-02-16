@@ -22,11 +22,7 @@
 .header__logo-name{
     width: 200px;
     color: #7D7D7D;
-    @include p_14;
     margin: auto 0;
-    @media (max-width: 450px){
-        @include mobile_p_14;    
-    }
 }
 .header__logo-name-first{
     font-weight: 700;

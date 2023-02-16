@@ -5,7 +5,7 @@ import check_btns from './modules/check_btns';
 import accordion from './modules/accordion';
 import navigation from './modules/navigation';
 import burger from './modules/burger';
-import '../scss/style.scss'
+import '../scss/base.scss'
 
 window.addEventListener('DOMContentLoaded', function() {
     tabs('.typography__tabs-item', '.typography__styles', '.typography__tabs', 'typography__tabs-item-active');

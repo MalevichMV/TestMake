@@ -1,10 +1,6 @@
 .UI__radio_check-tittle{
-    @include h3;
     margin-top: 32px;
     margin-bottom: 32px;
-    @media (max-width: 450px){
-        @include mobile_h3;    
-    }
 }
 .UI__radio_check_buttons{
     display: grid;
