@@ -1,0 +1,19 @@
+.UI{
+    grid-column-start: 4;
+    grid-column-end: 13;
+    @media (max-width: 928px){
+        grid-column-end: 9;           
+    }
+    @media (max-width: 672px){
+        grid-column-start: 1;          
+    } 
+    @media (max-width: 450px){
+        grid-column-end: 5;    
+    }
+}
+.UI__tittle{
+    @include h2;
+    @media (max-width: 450px){
+        @include mobile_h2;    
+    }
+}

@@ -1,0 +1,115 @@
+.UI__drop-downList-tittle{
+    margin-top: 40px;
+    margin-bottom: 24px;
+    @include h3;
+    @media (max-width: 450px){
+        @include mobile_h3;    
+    }
+}
+.UI__drop-downList-description{
+    @include p_16;
+    margin-bottom: 48px;
+    @media (max-width: 450px){
+        @include mobile_p_16;    
+    }
+}
+.UI__drop-downList-selects{
+    @include p_16;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 32px;
+    margin-bottom: 224px;
+    @media (max-width: 928px){
+        grid-template-columns: 1fr 1fr;        
+    }
+    @media (max-width: 672px){
+        display: block;       
+    }
+    @media (max-width: 450px){
+        @include mobile_p_16;    
+    }
+}
+.UI__drop-downList-select{
+    position: relative;
+    margin-bottom: 60px;
+    
+}
+.UI__drop-downList-select-header{
+    position: relative;
+    height: 32px;
+    border-bottom: 2px solid #AEADAE;
+    transition: border-color .3s;
+    cursor: pointer;
+}
+.UI__drop-downList-select-header:first-child:hover{
+    border-color: #3E29E3;
+}
+.UI__drop-downList-select-current{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.UI__drop-downList-select-placeholder{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color .3s, top .3s;
+}
+.UI__drop-downList-select-icon{
+    position: absolute;
+    right: 2px;
+    top: 12px;
+    height: 6px;
+    width: 6px;
+    border-bottom: 2px solid #3E29E3;
+    border-right: 2px solid #3E29E3;
+    transform: rotate(45deg);
+    transition: transform .3s;
+}
+.active_arrow{
+    transform: rotate(225deg);
+}
+.active_item{
+    color: #3D28E1;
+}
+.active_body .UI__drop-downList-select-header{
+    border-color: #3E29E3;
+}
+.active_current + .UI__drop-downList-select-placeholder{
+    top: -35%;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7D7D7D;
+    cursor: default;
+}
+.active_header{
+    border-color: #3E29E3;
+}
+.UI__drop-downList-select-body{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+}
+.UI__drop-downList-select-item{
+    cursor: default;
+    padding: 8px 24px;
+}
+.UI__drop-downList-select-item-example{
+    cursor: default;
+    padding: 8px 24px;
+}
+.UI__drop-downList-select-item-example:last-child{
+    color:#FFFFFF;
+    background: #3E29E3;
+}
+.UI__drop-downList-select-item:hover{
+    color:#FFFFFF;
+    background: #3E29E3;
+}
+.UI__drop-downList-select-item:first-child{
+    padding-top: 16px;
+}

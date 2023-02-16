@@ -1,0 +1,17 @@
+.footer{
+    margin-top: 112px;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    height: 116px;
+    width: 100%;
+    display: flex;
+    @media (max-width: 928px){
+        grid-column-end: 9;           
+    }
+    @media (max-width: 450px){
+        grid-column-end: 5;    
+    }
+}
+.footer__tittle{
+    margin: auto;
+}

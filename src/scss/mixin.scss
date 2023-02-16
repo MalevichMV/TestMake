@@ -1,0 +1,71 @@
+@mixin h1 {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+}
+@mixin h2 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+}
+@mixin h3 {  
+    font-weight: 400;  
+    font-size: 24px;
+    line-height: 32px;
+}
+@mixin h4{
+    font-size: 18px;
+    line-height: 28px;
+}
+@mixin p_lead{
+    font-size: 24px;
+    line-height: 32px;
+}
+@mixin p_18{
+    font-size: 18px;
+    line-height: 28px;
+}
+@mixin p_16{
+    font-size: 16px;
+    line-height: 24px;
+}
+@mixin p_14{
+    font-size: 14px;
+    line-height: 20px;
+}
+
+@mixin mobile_h1 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+}
+@mixin mobile_h2 {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 36px;
+}
+@mixin mobile_h3 {   
+    font-weight: 400;  
+    font-size: 20px;
+    line-height: 28px;
+}
+@mixin mobile_h4{
+    font-size: 18px;
+    line-height: 28px;
+}
+@mixin mobile_p_lead{
+    font-size: 20px;
+    line-height: 28px;
+}
+@mixin mobile_p_18{
+    font-size: 18px;
+    line-height: 28px;
+}
+@mixin mobile_p_16{
+    font-size: 16px;
+    line-height: 24px;
+}
+@mixin mobile_p_14{
+    font-size: 14px;
+    line-height: 20px;
+}
