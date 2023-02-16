@@ -4,7 +4,7 @@ import dropdownList from './modules/dropdownList';
 import check_btns from './modules/check_btns';
 import accordion from './modules/accordion';
 import navigation from './modules/navigation';
-import burger from './modules/burger';
+import modal from './modules/modal';
 import '../scss/style.scss'
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -14,5 +14,5 @@ window.addEventListener('DOMContentLoaded', function() {
     check_btns('.UI__check_button', '.UI__check_button-checkbox','.UI__radio_button', '.UI__radio_button-radio');
     accordion('.UI__accordion-header', '.UI__accordion-body');
     navigation();
-    burger('.back-page', '.header__burger');
+    modal('.modal', '.header__burger');
 }); 
