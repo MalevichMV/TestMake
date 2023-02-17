@@ -48,9 +48,9 @@
 	content: "\00AC";
 	position: absolute;
     font-size: 25px;
-    transform: rotate(130deg);
-	top: -6px;
-	left: 3px;
+    transform: translate(-50%, -50%) rotate(130deg);
+	top: 45%;
+	left: 50%;
 	color: #ffffff;
 }
 .UI__check_button:nth-child(2) input{
@@ -64,9 +64,9 @@
     content: "\00AC";
 	position: absolute;
     font-size: 25px;
-    transform: rotate(130deg);
-	top: -6px;
-	left: 3px;
+    transform: translate(-50%, -50%) rotate(130deg);
+	top: 45%;
+	left: 50%;
 	color: #ffffff;
 }
 .UI__radio_buttons{
