@@ -1,8 +1,8 @@
-function check_btns(checkboxParentSelector, checkboxSelector, radioParentSelector, radioSelector){
-    let parentCheckbox = document.querySelector(checkboxParentSelector),
-        checkbox = parentCheckbox.querySelector(checkboxSelector),
-        parentRadio = document.querySelector(radioParentSelector),
-        radio = parentRadio.querySelector(radioSelector);
+function check_btns(){
+    let parentCheckbox = document.querySelector('.UI__check_button'),
+        checkbox = parentCheckbox.querySelector('.UI__check_button-checkbox'),
+        parentRadio = document.querySelector('.UI__radio_button'),
+        radio = parentRadio.querySelector('.UI__radio_button-radio');
 
     parentCheckbox.addEventListener('click', () => {
         checkbox.checked = !checkbox.checked;

@@ -1,20 +1,11 @@
 .UI__drop-downList-tittle{
     margin-top: 40px;
     margin-bottom: 24px;
-    @include h3;
-    @media (max-width: 450px){
-        @include mobile_h3;    
-    }
 }
 .UI__drop-downList-description{
-    @include p_16;
     margin-bottom: 48px;
-    @media (max-width: 450px){
-        @include mobile_p_16;    
-    }
 }
 .UI__drop-downList-selects{
-    @include p_16;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 32px;
@@ -24,9 +15,6 @@
     }
     @media (max-width: 672px){
         display: block;       
-    }
-    @media (max-width: 450px){
-        @include mobile_p_16;    
     }
 }
 .UI__drop-downList-select{

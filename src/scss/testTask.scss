@@ -14,23 +14,11 @@
     }
 }
 .testTask__tittle{
-    @include h1;
     margin-bottom: 16px;
-    @media (max-width: 450px){
-        @include mobile_h1;    
-    }
 }
 .testTask__subtittle{
-    @include p_lead;
     margin-bottom: 64px;
-    @media (max-width: 450px){
-        @include mobile_p_lead;    
-    }
 }
 .testTask__description{
-    @include p_16;
     max-width: 592px;
-    @media (max-width: 450px){
-        @include mobile_p_16;    
-    }
 }

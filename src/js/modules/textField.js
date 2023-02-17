@@ -1,6 +1,6 @@
-function textField(inputElement, errorMessageElement) {
-    let input = document.querySelectorAll(inputElement)[0],
-        error = document.querySelectorAll(errorMessageElement)[0];
+function textField() {
+    let input = document.querySelector('.UI__textField-input',),
+        error = document.querySelector('.UI__textField-errorMessage');
     
     const validateEmail = (email) => {
         return email

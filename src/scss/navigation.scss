@@ -11,11 +11,7 @@
 .navigation__link{
     margin-bottom: 16px;
     display: block;
-    @include p_14;
     color: #7D7D7D;
-    @media (max-width: 450px){
-        @include mobile_p_14;    
-    }
 }
 .navigation__link:hover{
     color: #1B1B1B;

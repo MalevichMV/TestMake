@@ -1,6 +1,6 @@
-function burger(backPageSelector, burgerSelector){
-    let backPage = document.querySelector(backPageSelector),
-    burger = document.querySelector(burgerSelector);
+function burger(){
+    let backPage = document.querySelector('.back-page'),
+    burger = document.querySelector('.header__burger');
 
     /* Закрытие backPage */
     function closeBackPage(){

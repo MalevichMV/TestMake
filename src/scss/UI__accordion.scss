@@ -1,16 +1,6 @@
-.UI__accordion{
-    @include p_16;
-    @media (max-width: 450px){
-        @include mobile_p_16;    
-    }
-}
 .UI__accordion-tittle{
-    @include h3;
     margin-top: 40px;
     margin-bottom: 32px;
-    @media (max-width: 450px){
-        @include mobile_h3;    
-    }
 }
 .UI__accordion-header{
     cursor: pointer;
