@@ -4,7 +4,7 @@ import dropdownList from './modules/dropdownList';
 import check_btns from './modules/check_btns';
 import accordion from './modules/accordion';
 import navigation from './modules/navigation';
-import burger from './modules/burger';
+import modal from './modules/modal';
 import '../scss/base.scss'
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -14,5 +14,5 @@ window.addEventListener('DOMContentLoaded', function() {
     check_btns();
     accordion();
     navigation();
-    burger();
+    modal();
 }); 
