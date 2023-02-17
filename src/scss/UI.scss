@@ -11,9 +11,3 @@
         grid-column-end: 5;    
     }
 }
-.UI__tittle{
-    @include h2;
-    @media (max-width: 450px){
-        @include mobile_h2;    
-    }
-}
