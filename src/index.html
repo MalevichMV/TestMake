@@ -108,10 +108,10 @@
             <h2 class="typography__tittle">Типографика</h2>
             <p class="typography__description p_16">Используется шрифт Graphik. На телефонах стили типографики переопределяются</p>
             <div class="typography__tabs">
-                <p class="typography__tabs-item p_16">Десктоп</p>
-                <p class="typography__tabs-item p_16">Телефон</p>
+                <p class="typography__tabs-item p_16" data-device="desktop">Десктоп</p>
+                <p class="typography__tabs-item p_16" data-device="mobile">Телефон</p>
             </div>
-            <div class="typography__styles" id='typography__styles_desktop'>
+            <div class="typography__styles" data-device="desktop" id='typography__styles_desktop'>
                 <div class="typography__style">
                     <p class="typography__style-name p_16">Заголовок H1, 48/56, bold</p>
                     <h1 class="typography__style-example-h1">Текст заголовка</h1>
@@ -146,7 +146,7 @@
                 </div>
             </div>
 
-            <div class="typography__styles" id='typography__styles_mobile'>
+            <div class="typography__styles" data-device="mobile" id='typography__styles_mobile'>
                 <div class="typography__style">
                     <p class="typography__style-name p_16">Заголовок H1, 32/40, bold</p>
                     <h1 class="typography__style-example-h1">Текст заголовка</h1>

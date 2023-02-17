@@ -1,42 +1,55 @@
 function tabs() {
-	let tabs = document.querySelectorAll('.typography__tabs-item'),
-		tabsContent = document.querySelectorAll('.typography__styles'),
-		tabsParent = document.querySelector('.typography__tabs');
+	const tabs = document.querySelectorAll('.typography__tabs-item');
+	const tabsContent = document.querySelectorAll('.typography__styles');
+    const windowInnerWidth = window.innerWidth;
 
-    /* Скрытие контента у всех табов */
-	function hideTabContent() {
-        
-        tabsContent.forEach(item => {
-            item.classList.add('hide');
-            item.classList.remove('show');
+    function showTabFor(device){
+        tabs.forEach((item) => {
+            if (item.getAttribute('data-device') === device) 
+                item.classList.add('typography__tabs-item-active')            
+            else
+                item.classList.remove('typography__tabs-item-active')
         });
-
-        tabs.forEach(item => {
-            item.classList.remove('typography__tabs-item-active');
-        });
-	}
-
-    /* Показ контента у конкретного таба */
-	function showTabContent(i = 0) {
-        tabsContent[i].classList.add('show');
-        tabsContent[i].classList.remove('hide');
-        tabs[i].classList.add('typography__tabs-item-active');
     }
-    
-    hideTabContent();
-    showTabContent();
 
-	tabsParent.addEventListener('click', (e) => {
-		const target = e.target;
-		if(target && target.classList.contains('typography__tabs-item')) {
-            tabs.forEach((item, i) => {
-                if (target == item) {
-                    hideTabContent();
-                    showTabContent(i);
-                }
+    function outputContent(){
+        tabsContent.forEach(item => {
+            item.classList.remove('styles_show');
+        });
+        tabs.forEach((item) => {
+            if (item.classList.contains('typography__tabs-item-active'))
+                tabsContent.forEach(itemContent => {
+                    if (itemContent.getAttribute('data-device') === item.getAttribute('data-device')) 
+                    {
+                        itemContent.classList.add('styles_show');
+                    }else{
+                        itemContent.classList.remove('styles_show');
+                    }
             });
-		}
-    });
+        });
+    }
+
+    if (windowInnerWidth < 450)
+        showTabFor('mobile');
+    else
+        showTabFor('desktop');
+    outputContent();
+
+    window.addEventListener('resize', (e) => {
+        if (e.target.innerWidth < 450)
+            showTabFor('mobile');
+        else
+            showTabFor('desktop');
+
+        outputContent();
+    });        
+
+    tabs.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            showTabFor(e.target.getAttribute('data-device'));
+            outputContent();
+        });
+    })
 }
 
 export default tabs;

@@ -47,7 +47,15 @@
     width: 100%;
     height: 1px;
     background-color: #CBCBCC;
-}    
+} 
+.typography__styles{
+    display: none;
+}
+.styles_show{
+    display: block;
+    animation-name: fade;
+    animation-duration: .5s;
+}
 #typography__styles_mobile{
     @include mobile;
 }    
