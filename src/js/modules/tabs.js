@@ -1,7 +1,7 @@
-function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
-	let tabs = document.querySelectorAll(tabsSelector),
-		tabsContent = document.querySelectorAll(tabsContentSelector),
-		tabsParent = document.querySelector(tabsParentSelector);
+function tabs() {
+	let tabs = document.querySelectorAll('.typography__tabs-item'),
+		tabsContent = document.querySelectorAll('.typography__styles'),
+		tabsParent = document.querySelector('.typography__tabs');
 
     /* Скрытие контента у всех табов */
 	function hideTabContent() {
@@ -12,7 +12,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
         });
 
         tabs.forEach(item => {
-            item.classList.remove(activeClass);
+            item.classList.remove('typography__tabs-item-active');
         });
 	}
 
@@ -20,7 +20,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
 	function showTabContent(i = 0) {
         tabsContent[i].classList.add('show');
         tabsContent[i].classList.remove('hide');
-        tabs[i].classList.add(activeClass);
+        tabs[i].classList.add('typography__tabs-item-active');
     }
     
     hideTabContent();
@@ -28,7 +28,7 @@ function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass
 
 	tabsParent.addEventListener('click', (e) => {
 		const target = e.target;
-		if(target && target.classList.contains(tabsSelector.slice(1))) {
+		if(target && target.classList.contains('typography__tabs-item')) {
             tabs.forEach((item, i) => {
                 if (target == item) {
                     hideTabContent();

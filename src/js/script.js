@@ -5,14 +5,14 @@ import check_btns from './modules/check_btns';
 import accordion from './modules/accordion';
 import navigation from './modules/navigation';
 import modal from './modules/modal';
-import '../scss/style.scss'
+import '../scss/base.scss'
 
 window.addEventListener('DOMContentLoaded', function() {
-    tabs('.typography__tabs-item', '.typography__styles', '.typography__tabs', 'typography__tabs-item-active');
-    textField('.UI__textField-input', '.UI__textField-errorMessage');
-    dropdownList('.UI__drop-downList-select', '.UI__drop-downList-select-header', '.UI__drop-downList-select-body','.UI__drop-downList-select-icon','.UI__drop-downList-select-item','.UI__drop-downList-select-current');
-    check_btns('.UI__check_button', '.UI__check_button-checkbox','.UI__radio_button', '.UI__radio_button-radio');
-    accordion('.UI__accordion-header', '.UI__accordion-body');
+    tabs();
+    textField();
+    dropdownList();
+    check_btns();
+    accordion();
     navigation();
-    modal('.modal', '.header__burger');
+    modal();
 }); 

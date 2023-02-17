@@ -55,25 +55,11 @@
     }
 }
 .modal__info-name{
-    @include h2;
     margin-bottom: 24px;
-    @media (max-width: 450px){
-        @include mobile_h2;    
-    }
 }
 .modal__info-description{
-    @include p_16;
     margin-bottom: 32px;
     max-width: 384px;
-    @media (max-width: 450px){
-        @include mobile_p_16;    
-    }
-}
-.modal__info-phone{
-    @include p_18;
-    @media (max-width: 450px){
-        @include mobile_p_18;    
-    }
 }
 .modal__info-link{
     position: absolute;
@@ -105,11 +91,7 @@
     height: 14px;
 }
 .modal__info-link a{
-    @include p_16;
     color: #3E29E3;
-    @media (max-width: 450px){
-        @include mobile_p_16;    
-    }
 }
 .modal__close{
     cursor: pointer;

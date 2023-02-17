@@ -1,8 +1,8 @@
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
-function modal(modalSelector, burgerSelector){
-    const modal = document.querySelector(modalSelector),
-        burger = document.querySelector(burgerSelector);
+function modal(){
+    const modal = document.querySelector('.modal'),
+        burger = document.querySelector('.header__burger');
 
     /* Закрытие modal */
     function closemodal(){
