@@ -1,10 +1,10 @@
-function dropdownList(dropdownListSelector ,headerSelector, bodySelector, arrowSelector, itemsSelector, currentSelector) {
-    let header = document.querySelector(headerSelector), 
-        body = document.querySelector(bodySelector),
-        dropdownList = document.querySelector(dropdownListSelector),
-        arrow = document.querySelector(arrowSelector),
-        items = body.querySelectorAll(itemsSelector),
-        current = document.querySelector(currentSelector);
+function dropdownList() {
+    let header = document.querySelector('.UI__drop-downList-select-header'), 
+        body = document.querySelector('.UI__drop-downList-select-body'),
+        dropdownList = document.querySelector('.UI__drop-downList-select'),
+        arrow = document.querySelector('.UI__drop-downList-select-icon'),
+        items = body.querySelectorAll('.UI__drop-downList-select-item'),
+        current = document.querySelector('.UI__drop-downList-select-current');
 
     
     /* Открытие и закрытие выпадающего списка */

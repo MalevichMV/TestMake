@@ -1,6 +1,6 @@
-function accordion(headerSelector, bodySelector){
-    let accordionHeader = document.querySelector(headerSelector),
-        accordionBody = document.querySelector(bodySelector);
+function accordion(){
+    let accordionHeader = document.querySelector('.UI__accordion-header'),
+        accordionBody = document.querySelector('.UI__accordion-body');
 
     accordionHeader.addEventListener('click', () => {
         accordionBody.classList.toggle("active_accordion_body");
