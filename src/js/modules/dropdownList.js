@@ -1,23 +1,19 @@
 function dropdownList() {
-    let header = document.querySelector('.UI__drop-downList-select-header'), 
-        body = document.querySelector('.UI__drop-downList-select-body'),
-        dropdownList = document.querySelector('.UI__drop-downList-select'),
-        arrow = document.querySelector('.UI__drop-downList-select-icon'),
-        items = body.querySelectorAll('.UI__drop-downList-select-item'),
-        current = document.querySelector('.UI__drop-downList-select-current');
+    const header = document.querySelector('.UI__drop-downList-select-header');
+    const dropdownList = document.querySelector('.UI__drop-downList-select');
+    const current = document.querySelector('.UI__drop-downList-select-current');
+    const body = document.querySelector('.UI__drop-downList-select-body');
+    const items = body.querySelectorAll('.UI__drop-downList-select-item');
+    
 
     
     /* Открытие и закрытие выпадающего списка */
     header.addEventListener('click', () => {
-        body.classList.toggle("active_body");
-        arrow.classList.toggle("active_arrow");
-        if (body.classList.contains("active_body")) {
+        dropdownList.classList.toggle('active_select')
+        if (dropdownList.classList.contains('active_select')) {
             body.style.maxHeight = body.scrollHeight + "px";
-            header.classList.add('active_header');
         } else {
             body.style.maxHeight = 0;
-            if (!current.classList.contains('active_current'))
-            header.classList.remove('active_header');
         }
     });
 
@@ -29,17 +25,13 @@ function dropdownList() {
     
     /* Выбор элемента из списка */
     items.forEach(elem => {
-        elem.addEventListener('click', (e) => {
-            if (!elem.classList.contains('active_item'))
-            {
+        elem.addEventListener('click', () => {
+            if (!elem.classList.contains('active_item')){
                 removeActiveClass();
                 elem.classList.add('active_item');
-                current.classList.add('active_current');
                 current.innerHTML = elem.innerHTML;
-                header.classList.add('active_header');
             }
-            arrow.classList.remove("active_arrow");
-            body.classList.remove('active_body');
+            dropdownList.classList.remove('active_select');
             body.style.maxHeight = 0;
         });
     });
@@ -49,11 +41,8 @@ function dropdownList() {
         if (e.target === dropdownList || dropdownList.contains(e.target)) {
             return;
         }
-        arrow.classList.remove("active_arrow");
-        body.classList.remove('active_body');
+        dropdownList.classList.remove('active_select');
         body.style.maxHeight = 0;
-        if (!current.classList.contains('active_current'))
-            header.classList.remove('active_header');
     });
 }
 
