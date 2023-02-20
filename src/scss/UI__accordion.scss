@@ -28,29 +28,30 @@
     border-bottom: 1px solid #CBCBCC;
     transition: border-color .3s, max-height .3s;
 }
-.accordion_active .UI__accordion-header{
-    color: #3E29E3;
-}
-.accordion_active .UI__accordion-header::after{
-    transform: rotate(225deg);
-}
-.accordion_active .UI__accordion-body{
-    border-bottom: 2px solid #3E29E3;
-    padding-bottom: 30px;
+.accordion_active {
+    & .UI__accordion-header{
+        color: #3E29E3;
+    }
+    & .UI__accordion-header::after{
+        transform: rotate(225deg);
+    }
+    & .UI__accordion-body{
+        border-bottom: 2px solid #3E29E3;
+        padding-bottom: 30px;
+    }
+    & .UI__accordion-header:hover{
+        color: #3E29E3;
+    }
+    & .UI__accordion-body_example{
+        border-bottom: 2px solid #3E29E3;
+        padding-bottom: 30px;
+    }
 }
 .UI__accordion-header:hover{
     color: #1B1B1B;
 }
-
-.accordion_active .UI__accordion-header:hover{
-    color: #3E29E3;
-}
 .UI__accordion-header:hover + .UI__accordion-body{
     border-color:#3E29E3;
-}
-.accordion_active .UI__accordion-body_example{
-    border-bottom: 2px solid #3E29E3;
-    padding-bottom: 30px;
 }
 .UI__accordion-wrapper:nth-child(2) .UI__accordion-header{
     color: #1B1B1B;
