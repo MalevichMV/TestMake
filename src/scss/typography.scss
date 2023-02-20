@@ -41,17 +41,17 @@
 .active_tab{
     position: relative;
     font-weight: bold;
-}
-.active_tab:after{
-    position: absolute;
-    top: 38px;
-    display: block;
-    content: '';
-    width: 100%;
-    height: 2px;
-    background-color: #3E29E3;
-    animation-name: fade;
-    animation-duration: .5s;
+    &:after{
+        position: absolute;
+        top: 38px;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background-color: #3E29E3;
+        animation-name: fade;
+        animation-duration: .5s;
+    }
 }
 .typography__tabs:after{
     margin-top: 15px;
