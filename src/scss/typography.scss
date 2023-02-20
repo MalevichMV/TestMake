@@ -25,11 +25,11 @@
     margin-right: 32px;
     display: inline-block;
 }
-.typography__tabs-item-active{
+.active_tab{
     position: relative;
     font-weight: bold;
 }
-.typography__tabs-item-active:after{
+.active_tab:after{
     position: absolute;
     top: 38px;
     display: block;
@@ -47,7 +47,15 @@
     width: 100%;
     height: 1px;
     background-color: #CBCBCC;
-}    
+} 
+.typography__styles{
+    display: none;
+}
+.styles_show{
+    display: block;
+    animation-name: fade;
+    animation-duration: .5s;
+}
 #typography__styles_mobile{
     @include mobile;
 }    

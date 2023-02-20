@@ -1,42 +1,50 @@
 function tabs() {
-	let tabs = document.querySelectorAll('.typography__tabs-item'),
-		tabsContent = document.querySelectorAll('.typography__styles'),
-		tabsParent = document.querySelector('.typography__tabs');
+	const tabs = document.querySelectorAll('.typography__tabs-item');
+	const tabsContent = document.querySelectorAll('.typography__styles');
 
-    /* Скрытие контента у всех табов */
-	function hideTabContent() {
-        
-        tabsContent.forEach(item => {
-            item.classList.add('hide');
-            item.classList.remove('show');
+    showTabForCurrentWidth(window.innerWidth)
+
+    function showTabFor(device){
+        tabs.forEach((item) => {
+            if (item.dataset.device === device){
+                item.classList.add('active_tab')
+            }
+            else
+            {
+                item.classList.remove('active_tab')
+            }
         });
 
-        tabs.forEach(item => {
-            item.classList.remove('typography__tabs-item-active');
+        tabsContent.forEach((item) => {
+            if (item.dataset.device === device){
+                item.classList.add('styles_show')
+            }
+            else
+            {
+                item.classList.remove('styles_show')
+            }
         });
-	}
-
-    /* Показ контента у конкретного таба */
-	function showTabContent(i = 0) {
-        tabsContent[i].classList.add('show');
-        tabsContent[i].classList.remove('hide');
-        tabs[i].classList.add('typography__tabs-item-active');
     }
-    
-    hideTabContent();
-    showTabContent();
+ 
+    function showTabForCurrentWidth(width){
+        if (width < 450) {
+            showTabFor('mobile');
+        }
+        else
+        {
+            showTabFor('desktop');
+        }
+    }       
 
-	tabsParent.addEventListener('click', (e) => {
-		const target = e.target;
-		if(target && target.classList.contains('typography__tabs-item')) {
-            tabs.forEach((item, i) => {
-                if (target == item) {
-                    hideTabContent();
-                    showTabContent(i);
-                }
-            });
-		}
-    });
+    window.addEventListener('resize', (e) => {
+        showTabForCurrentWidth(e.target.innerWidth);
+    });        
+
+    tabs.forEach((item) => {
+        item.addEventListener('click', (e) => {
+            showTabFor(e.target.dataset.device);
+        });
+    })
 }
 
 export default tabs;
