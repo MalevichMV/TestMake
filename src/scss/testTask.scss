@@ -1,9 +1,12 @@
 .testTask{
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-column-gap: 32px;
     padding-bottom: 80px;
-    margin-top: 48px;
     grid-column-start: 4;
     grid-column-end: 13;
     @media (max-width: 928px){
+        display: block;
         grid-column-end: 9;           
     }
     @media (max-width: 672px){
@@ -15,10 +18,15 @@
 }
 .testTask__tittle{
     margin-bottom: 16px;
+    grid-column-start: 1;
+    grid-column-end: 10;
 }
 .testTask__subtittle{
+    grid-column-start: 1;
+    grid-column-end: 10;
     margin-bottom: 64px;
 }
 .testTask__description{
-    max-width: 592px;
+    grid-column-start: 1;
+    grid-column-end: 7;
 }

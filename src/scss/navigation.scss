@@ -1,9 +1,8 @@
 .navigation{
     position: sticky;
-    top: 0;
+    top: 120px;
     grid-column-start: 1;
     grid-column-end: 4;
-    margin-top: 228px;
     @media (max-width: 672px){
         display: none;           
     } 
