@@ -2,21 +2,21 @@ function tabs() {
 	const tabs = document.querySelectorAll('.typography__tabs-item');
 	const tabsContent = document.querySelectorAll('.typography__styles');
 
+    showTabForCurrentWidth(window.innerWidth)
+
     function showTabFor(device){
         tabs.forEach((item) => {
-            if (item.dataset.device === device) 
-            {
-                item.classList.add('typography__tabs-item-active')
+            if (item.dataset.device === device){
+                item.classList.add('active_tab')
             }
             else
             {
-                item.classList.remove('typography__tabs-item-active')
+                item.classList.remove('active_tab')
             }
         });
 
         tabsContent.forEach((item) => {
-            if (item.dataset.device === device) 
-            {
+            if (item.dataset.device === device){
                 item.classList.add('styles_show')
             }
             else
@@ -26,25 +26,18 @@ function tabs() {
         });
     }
  
-    if (window.innerWidth < 450)
-    {
-        showTabFor('mobile');
-    }
-    else
-    {
-        showTabFor('desktop');
-    }
-        
-
-    window.addEventListener('resize', (e) => {
-        if (e.target.innerWidth < 450)
-        {
+    function showTabForCurrentWidth(width){
+        if (width < 450) {
             showTabFor('mobile');
-        }            
+        }
         else
         {
             showTabFor('desktop');
         }
+    }       
+
+    window.addEventListener('resize', (e) => {
+        showTabForCurrentWidth(e.target.innerWidth);
     });        
 
     tabs.forEach((item) => {

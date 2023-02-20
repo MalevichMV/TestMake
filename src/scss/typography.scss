@@ -25,11 +25,11 @@
     margin-right: 32px;
     display: inline-block;
 }
-.typography__tabs-item-active{
+.active_tab{
     position: relative;
     font-weight: bold;
 }
-.typography__tabs-item-active:after{
+.active_tab:after{
     position: absolute;
     top: 38px;
     display: block;
