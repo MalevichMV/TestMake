@@ -46,17 +46,6 @@
     pointer-events: none;
     transition: color .3s, bottom .3s;
 }
-.input_error + .UI__textField-placeholder,
-.input_correct + .UI__textField-placeholder,
-.input_focus + .UI__textField-placeholder {
-    bottom: 45px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #7D7D7D;
-}
-.input_error + .UI__textField-placeholder{
-    color: #E80F3B;
-}
 .UI__textField-errorMessage{
     margin-top: 6px;
     font-size: 14px;
@@ -64,10 +53,57 @@
     color: #E80F3B;
     position: absolute;
     bottom: -27px;
-    display: none;
+    visibility: hidden;
     z-index: 99;
+}
+.show_errorMessage{
+    visibility: visible;
     animation-name: fade;
     animation-duration: .3s;
+}
+.UI__textField-input:hover{
+    border-bottom: 2px solid #3E29E3;
+}
+.UI__textField-input:focus{
+    border-bottom: 2px solid #3E29E3;
+}
+.UI__textField-input:valid{
+    border-bottom: 4px solid #3E29E3;
+}
+.UI__textField-input:focus + .UI__textField-placeholder,
+.UI__textField-input:valid + .UI__textField-placeholder{
+    bottom: 45px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7D7D7D;
+}
+.input_error{
+    border-bottom: 4px solid #E80F3B;
+}
+.input_error:hover{
+    border-bottom: 4px solid #E80F3B;
+}
+.input_error:valid{
+    border-bottom: 4px solid #E80F3B;
+}
+.input_error:valid + .UI__textField-placeholder{
+    color: #E80F3B;
+}
+
+.input_example_hover{
+    border-bottom: 2px solid #3E29E3;
+}
+.input_example_correct{
+    border-bottom: 4px solid #3E29E3;
+}
+.input_example_correct:hover{
+    border-bottom: 4px solid #3E29E3;
+}
+.input_example_correct + .UI__textField-placeholder{
+    bottom: 45px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #7D7D7D;
 }
 .UI__textField-errorMessage-example{
     margin-top: 6px;
@@ -79,15 +115,9 @@
     display: block;
     z-index: 99;
 }
-.input_error{
-    border-bottom: 4px solid #E80F3B;
-}
-.input_correct{
-    border-bottom: 4px solid #3E29E3;
-}
-.input_focus{
-    border-bottom: 2px solid #3E29E3;
-}
-.input_hover{
-    border-bottom: 2px solid #3E29E3;
+.placeholder_error_example{
+    bottom: 45px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #E80F3B;
 }
