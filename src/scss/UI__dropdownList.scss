@@ -55,23 +55,26 @@
     transform: rotate(45deg);
     transition: transform .3s;
 }
-.active_arrow{
-    transform: rotate(225deg);
+.active_select{
+    .UI__drop-downList-select-icon{
+        transform: rotate(225deg);
+    }
+    .UI__drop-downList-select-header{
+        border-color: #3E29E3;
+    }
 }
 .active_item{
     color: #3D28E1;
 }
-.active_body .UI__drop-downList-select-header{
-    border-color: #3E29E3;
-}
-.active_current + .UI__drop-downList-select-placeholder{
+.UI__drop-downList-select-current:not(:empty) + .UI__drop-downList-select-placeholder{
     top: -35%;
     font-size: 14px;
     line-height: 20px;
     color: #7D7D7D;
     cursor: default;
 }
-.active_header{
+.UI__drop-downList-select-header:has(.UI__drop-downList-select-current:not(:empty))
+{
     border-color: #3E29E3;
 }
 .UI__drop-downList-select-body{
