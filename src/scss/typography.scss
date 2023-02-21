@@ -37,10 +37,7 @@
     cursor: pointer;
     margin-right: 32px;
     display: inline-block;
-}
-.active_tab{
     position: relative;
-    font-weight: bold;
     &:after{
         position: absolute;
         top: 38px;
@@ -49,8 +46,14 @@
         width: 100%;
         height: 2px;
         background-color: #3E29E3;
-        animation-name: fade;
-        animation-duration: .5s;
+        opacity: 0;
+        transition: opacity .2s linear;
+    }
+}
+.active_tab{
+    font-weight: bold;
+    &:after{
+        opacity: 1;
     }
 }
 .typography__tabs:after{
@@ -64,18 +67,23 @@
 .typography__styles{
     grid-column-start: 1;
     grid-column-end: 10;
-    display: none;
+    height: 0; 
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .2s linear;
 }
 .styles_show{
-    display: block;
-    animation-name: fade;
-    animation-duration: .5s;
+    height: 100%; 
+    overflow: visible;
+    visibility: visible;
+    opacity: 1;
 }
-#typography__styles_mobile{
+.typography__styles_mobile{
     @include mobile;
 }    
-#typography__styles_desktop{
-    @include desktop;
+.typography__styles_desktop{
+    @include desktop; 
 }  
 .typography__style{
     margin-bottom: 48px;
