@@ -58,11 +58,12 @@
     bottom: -27px;
     visibility: hidden;
     z-index: 99;
+    opacity: 0;
+    transition: opacity .2s linear;
 }
 .show_errorMessage{
     visibility: visible;
-    animation-name: fade;
-    animation-duration: .3s;
+    opacity: 1;
 }
 .UI__textField-input:hover{
     border-bottom: 2px solid #3E29E3;
